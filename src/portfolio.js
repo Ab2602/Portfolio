@@ -20,14 +20,15 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Abhinav Triapthi",
+  username: "Abhinav Tripathi",
   title: "Hi all, I'm Abhinav",
   subTitle: emoji(
-    "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
+    "DevOps Engineer with production experience on AWS and GCP 🚀 Specialized in container orchestration (K8s, EKS, GKE), infrastructure as code (Terraform), and CI/CD (Jenkins, GitLab). Delivered 60–70% faster deployment and monitoring setup."
   ),
   resumeLink:
     "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
-  displayGreeting: true // Set false to hide this section, defaults to true
+  displayGreeting: true, // Set false to hide this section, defaults to true
+  showTerminal: true // Show terminal intro
 };
 
 // Social Media Links
@@ -45,15 +46,14 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "DevOps Engineer specializing in cloud infrastructure, container orchestration, and CI/CD pipelines",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase"
-    )
+    "Design and deploy scalable Kubernetes clusters on AWS (EKS) and GCP (GKE) with production-ready configurations",
+    "Build Infrastructure as Code (IaC) solutions using Terraform for automated cloud resource provisioning",
+    "Implement CI/CD pipelines with Jenkins and GitLab CI to achieve 60-70% faster deployment cycles",
+    "Set up comprehensive monitoring and observability stacks with Prometheus, Grafana, and Datadog",
+    "Manage containerized applications with Docker and orchestrate workloads using Kubernetes operators",
+    "Automate infrastructure lifecycle management and enforce security best practices with RBAC and short-lived credentials"
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -61,65 +61,53 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
+      skillName: "aws",
+      fontAwesomeClassname: "fab fa-aws"
     },
     {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
+      skillName: "docker",
+      fontAwesomeClassname: "fab fa-docker"
     },
     {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
+      skillName: "kubernetes",
+      fontAwesomeClassname: "fab fa-kubernetes"
     },
     {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
+      skillName: "linux",
+      fontAwesomeClassname: "fab fa-linux"
     },
     {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
+      skillName: "python",
+      fontAwesomeClassname: "fab fa-python"
     },
     {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    // {
-    //   skillName: "swift",
-    //   fontAwesomeClassname: "fab fa-swift"
-    // },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
+      skillName: "git",
+      fontAwesomeClassname: "fab fa-git-alt"
     },
     {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    // {
-    //   skillName: "aws",
-    //   fontAwesomeClassname: "fab fa-aws"
-    // },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    // {
-    //   skillName: "python",
-    //   fontAwesomeClassname: "fab fa-python"
-    // },
-    // {
-    //   skillName: "docker",
-    //   fontAwesomeClassname: "fab fa-docker"
-    // }
-    {
-      skillName: "Java",
-      fontAwesomeClassname: "fab fa-java"
+      skillName: "jenkins",
+      fontAwesomeClassname: "fab fa-jenkins"
     },
     {
-      skillName: "C#",
-      fontAwesomeClassname: "fab fa-chash"
+      skillName: "terraform",
+      fontAwesomeClassname: "fab fa-aws"
     },
+    {
+      skillName: "bash",
+      fontAwesomeClassname: "fas fa-terminal"
+    },
+    {
+      skillName: "go",
+      fontAwesomeClassname: "fab fa-google"
+    },
+    {
+      skillName: "prometheus",
+      fontAwesomeClassname: "fas fa-chart-line"
+    },
+    {
+      skillName: "grafana",
+      fontAwesomeClassname: "fas fa-chart-bar"
+    }
   ],
   display: true // Set false to hide this section, defaults to true
 };
@@ -178,36 +166,46 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Application Software",
+      role: "DevOps Engineer",
+      company: "AppPerfect Corporation",
+      companylogo: require("./assets/images/appPerfectLogo.ico"),
+      companyBannerColor: "rgb(255, 165, 41)", // #ffa529 - matches App Perfect brand
+      date: "September 2025 – Present",
+      location: "Udaipur",
+      desc: "DevOps Engineer specializing in Kubernetes, cloud infrastructure, and CI/CD automation.",
+      descBullets: [
+        "Built and operated HPC Kubernetes workloads with Slurm/Slurm Operator across AWS and GCP; enabled reliable job scheduling and resource isolation for high-compute workloads.",
+        "Deployed and maintained 3+ production clusters (EKS, GKE) via Terraform; automated full provisioning and lifecycle in GitLab CI.",
+        "Shipped a reusable observability module (Prometheus, Grafana, Loki) in Terraform for AWS, GCP, and OCI, cutting net new cluster monitoring setup by 60%.",
+        "Cut deployment time by 70% with Jenkins and K8s on AWS; enabled horizontal scaling for 5+ microservices.",
+        "Eliminated long-lived cloud credentials by integrating Teleport with GitLab CI (short-lived access); strengthened compliance and rotation.",
+        "Reduced mean time to detect production failures by 70% using Datadog dashboards and APM traces."
+      ]
+    },
+    {
+      role: "Software Developer",
       company: "Secure Meters Ltd",
       companylogo: require("./assets/images/secureLogo.jpg"),
-      date: "Jan 2024 – Present",
-      // desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      // descBullets: [
-      //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      // ]
+      date: "January 2024 – September 2025",
+      location: "Udaipur",
+      desc: "Software Developer focused on building scalable applications and implementing CI/CD practices.",
+      descBullets: [
+        "Designed and shipped a centralized SSO server for 4+ internal applications, enabling single sign-on and stronger access control.",
+        "Migrated a legacy Windows app to a .NET Core async background service; reduced maintenance overhead and improved scalability.",
+        "Drove CI/CD with Jenkins: unit tests and coverage gates on every commit; stable releases for 2+ product lines."
+      ]
     },
     {
       role: "Research Intern",
-      company: "IIT Hyderabad",
+      company: "Indian Institute of Technology Hyderabad",
       companylogo: require("./assets/images/iitLogo.jpg"),
-      date: "June 2023 – Aug 2023",
-      // desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      role: "Software Developer Intern",
-      company: "Pandya Software Technologies",
-      companylogo: require("./assets/images/pandayLogo.png"),
-      date: "Oct 2022 – Nov 2022",
-      // desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      role: "Software Developer Intern",
-      company: "Fusion Business Solution",
-      companylogo: require("./assets/images/fbsplLogo.jpg"),
-      date: "June 2022 – July 2022",
-      // desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      date: "June 2023 – August 2023",
+      location: "Hyderabad",
+      desc: "Research Intern working on blockchain consensus algorithms and distributed systems.",
+      descBullets: [
+        "Researched consensus algorithms and their impact on blockchain security and scalability; published findings in a team report.",
+        "Streamlined contract creation and management in Sawtooth Hyperledger using Rust; achieved 30% faster turnaround."
+      ]
     }
   ]
 };

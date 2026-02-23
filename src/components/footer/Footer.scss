@@ -1,15 +1,45 @@
 @import "../../_globalColor";
 
+.footer-div {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  overflow: visible;
+}
+
 .footer-text {
   text-align: center;
   color: $subTitle !important;
+  margin: 0;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  width: 100%;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
-.dark-mode {
+.footer-heart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #e53e3e;
+  margin: 0 0.15em;
+  vertical-align: middle;
+}
+
+.footer-heart svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.dark-mode .footer-text {
   color: $textColorDark !important;
+  opacity: 0.9;
 }
 
-.footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+.dark-mode .footer-heart {
+  color: #fc8181;
 }

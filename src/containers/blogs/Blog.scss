@@ -1,70 +1,46 @@
-/*Blog Cards Layout*/
 @import "../../_globalColor";
 
-.square {
-  width: 440px;
-  height: 430px;
-  background: $textColorDark;
-  border-radius: 4px;
-  box-shadow: 0px 20px 50px $darkBoxShadow;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin-top: 30px;
-}
-
-.square:hover {
-  box-shadow: 0 20px 40px $lightBoxShadow;
+.blog-header {
+  margin-bottom: 2rem;
 }
 
 .blog-header-text {
-  font-size: 56px;
-  font-weight: 400;
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-weight: 700;
 }
 
 .blog-subtitle {
-  text-transform: uppercase;
+  text-transform: none;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  letter-spacing: 0.01em;
 }
-.blog-main-div > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
+
 .blog-main-div {
-  display: flex;
+  display: block;
 }
-.blog-image-div > img {
-  max-width: 100%;
-  height: auto;
-}
+
 .blog-text-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 1.5rem;
 }
+
 .subTitle {
   color: $subTitle;
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .blog-header-text {
-    font-size: 40px;
+@media (max-width: 640px) {
+  .blog-text-div {
+    grid-template-columns: 1fr;
   }
-}
-@media (max-width: 768px) {
-  .blog-header-text {
-    font-size: 30px;
-    text-align: center;
-  }
+
   .blog-subtitle {
-    font-size: 16px;
+    font-size: 14px;
     line-height: normal;
     text-align: center;
   }
-}
 
-@media screen and (max-width: 480px) and (min-width: 300px) {
-  .blog-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .blog-header {
+    text-align: center;
   }
 }

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
-import StackProgress from "./skillProgress/skillProgress";
 import WorkExperience from "./workExperience/WorkExperience";
 import Projects from "./projects/Projects";
 import StartupProject from "./StartupProjects/StartupProject";
@@ -40,11 +39,24 @@ const Main = () => {
   }, []);
 
   const changeTheme = () => {
-    setIsDark(!isDark);
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    // Update daisyUI theme immediately
+    const html = document.documentElement;
+    html.setAttribute('data-theme', newIsDark ? 'dark' : 'retro');
   };
 
+  // Update theme when isDark changes or on mount
+  useEffect(() => {
+    const html = document.documentElement;
+    const theme = isDark ? 'dark' : 'retro';
+    html.setAttribute('data-theme', theme);
+    // Also set on body for compatibility
+    document.body.setAttribute('data-theme', theme);
+  }, [isDark]);
+
   return (
-    <div className={isDark ? "dark-mode" : null}>
+    <div className="min-h-screen bg-base-100" data-theme={isDark ? "dark" : "retro"}>
       <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
         {isShowingSplashAnimation && splashScreen.enabled ? (
           <SplashScreen />
@@ -53,7 +65,6 @@ const Main = () => {
             <Header />
             <Greeting />
             <Skills />
-            <StackProgress />
             <Education />
             <WorkExperience />
             <Projects />

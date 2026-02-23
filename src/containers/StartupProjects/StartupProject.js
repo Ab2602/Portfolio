@@ -19,20 +19,14 @@ export default function StartupProject() {
   }
   return (
     <Fade bottom duration={1000} distance="20px">
-      <div className="main" id="projects">
-        <div>
-          <h1 className="skills-heading">{bigProjects.title}</h1>
-          <p
-            className={
-              isDark
-                ? "dark-mode project-subtitle"
-                : "subTitle project-subtitle"
-            }
-          >
+      <div className="py-12 sm:py-16 lg:py-20 bg-base-100" id="projects">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="skills-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-base-content">{bigProjects.title}</h1>
+          <p className="subTitle project-subtitle text-base-content/70">
             {bigProjects.subtitle}
           </p>
 
-          <div className="projects-container">
+          <div className="projects-container mt-6 sm:mt-8">
             {bigProjects.projects.map((project, i) => {
               return (
                 <div

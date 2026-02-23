@@ -3,55 +3,59 @@
 .card-image {
   max-width: 100%;
   height: auto;
-  width: 250px;
+  width: 200px;
 }
+
 .card-title {
   color: $titleColor;
-  font-size: 22px;
-  line-height: 24px;
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  line-height: 1.4;
   font-weight: 700;
-  margin: 15px 0 0 0;
+  margin: 12px 0 0 0;
 }
+
 .card-subtitle {
   color: $cardSubtitle;
-  font-size: 17px;
-  line-height: 1.5rem;
+  font-size: clamp(0.85rem, 2vw, 1.063rem);
+  line-height: 1.5;
 }
+
 .project-card {
   display: flex;
   flex-direction: column;
   background-color: $lightBackground2;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 10px;
   border: 1px solid $lightBorder1;
   justify-content: center;
+  height: 100%;
 }
+
 .project-card-light {
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
 .project-card-dark {
   box-shadow: 0px 10px 30px -15px $darkBoxShadow;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.25s ease;
 }
 
 .project-detail {
   text-align: center;
 }
+
 .project-card-light:hover {
   box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
 }
+
 .project-card-dark:hover {
   box-shadow: 0px 20px 30px -10px $darkBoxShadow;
 }
+
 .project-image {
   position: relative;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -60,8 +64,8 @@
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
 }
 
 .project-card-footer span.project-tag {
@@ -82,9 +86,17 @@
   transition: 0.2s ease-in;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .project-subtitle {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 160px;
   }
 }

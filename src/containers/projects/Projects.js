@@ -11,7 +11,6 @@ export default function Projects() {
   const FailedLoading = () => null;
   const renderLoader = () => <Loading />;
   const [repo, setrepo] = useState([]);
-  // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
 
   useEffect(() => {
@@ -45,26 +44,28 @@ export default function Projects() {
   ) {
     return (
       <Suspense fallback={renderLoader()}>
-        <div className="main" id="opensource">
-          <h1 className="project-title">Open Source Projects</h1>
-          <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
-              if (!v) {
-                console.error(
-                  `Github Object for repository number : ${i} is undefined`
+        <div className="py-12 sm:py-16 lg:py-20 bg-base-100" id="opensource">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="project-title font-bold mb-6 sm:mb-8 text-base-content">Open Source Projects</h1>
+            <div className="repo-cards-div-main">
+              {repo.map((v, i) => {
+                if (!v) {
+                  console.error(
+                    `Github Object for repository number : ${i} is undefined`
+                  );
+                }
+                return (
+                  <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
                 );
-              }
-              return (
-                <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
-              );
-            })}
+              })}
+            </div>
+            <Button
+              text={"More Projects"}
+              className="project-button"
+              href={socialMediaLinks.github}
+              newTab={true}
+            />
           </div>
-          <Button
-            text={"More Projects"}
-            className="project-button"
-            href={socialMediaLinks.github}
-            newTab={true}
-          />
         </div>
       </Suspense>
     );

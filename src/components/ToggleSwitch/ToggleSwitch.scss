@@ -7,8 +7,8 @@
   height: 26px;
 }
 
-/* Fix visible slider checkbox */
-input {
+/* Fix visible slider checkbox - scoped to toggle switch only */
+.switch input[type="checkbox"] {
   transform: scale(0.5);
 }
 

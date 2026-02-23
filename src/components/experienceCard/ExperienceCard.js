@@ -1,4 +1,5 @@
 import React, {useState, createRef} from "react";
+import {motion} from "framer-motion";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
 
@@ -17,68 +18,42 @@ export default function ExperienceCard({cardInfo, isDark}) {
       : "rgb(" + values.join(", ") + ")";
   }
 
-  const GetDescBullets = ({descBullets, isDark}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li
-            key={i}
-            className={isDark ? "subTitle dark-mode-text" : "subTitle"}
-          >
-            {item}
-          </li>
-        ))
-      : null;
-  };
+  const bannerBackground = cardInfo.companyBannerColor || rgb(colorArrays);
 
   return (
-    <div className={isDark ? "experience-card-dark" : "experience-card"}>
-      <div style={{background: rgb(colorArrays)}} className="experience-banner">
+    <motion.div
+      className={`${isDark ? "experience-card-dark" : "experience-card"} group cursor-pointer`}
+      whileHover={{
+        scale: 1.02,
+        y: -4,
+        transition: {type: "spring", stiffness: 260, damping: 18}
+      }}
+    >
+      <div style={{background: bannerBackground}} className="experience-banner relative overflow-hidden">
         <div className="experience-blurred_div"></div>
-        <div className="experience-div-company">
-          <h5 className="experience-text-company">{cardInfo.company}</h5>
-        </div>
-
         <img
           crossOrigin={"anonymous"}
           ref={imgRef}
-          className="experience-roundedimg"
+          className="experience-roundedimg group-hover:scale-110 transition-transform duration-300"
           src={cardInfo.companylogo}
           alt={cardInfo.company}
           onLoad={() => getColorArrays()}
         />
+        <div className="experience-div-company">
+          <h5 className="experience-text-company group-hover:scale-105 transition-transform duration-300">{cardInfo.company}</h5>
+        </div>
       </div>
-      <div className="experience-text-details">
-        <h5
-          className={
-            isDark
-              ? "experience-text-role dark-mode-text"
-              : "experience-text-role"
-          }
-        >
+      <div className="experience-text-details group-hover:bg-base-200/50 transition-colors duration-300 rounded-b-lg">
+        <h5 className="experience-text-role group-hover:text-primary transition-colors">
           {cardInfo.role}
         </h5>
-        <h5
-          className={
-            isDark
-              ? "experience-text-date dark-mode-text"
-              : "experience-text-date"
-          }
-        >
+        <h5 className="experience-text-date">
           {cardInfo.date}
         </h5>
-        <p
-          className={
-            isDark
-              ? "subTitle experience-text-desc dark-mode-text"
-              : "subTitle experience-text-desc"
-          }
-        >
+        <p className="subTitle experience-text-desc">
           {cardInfo.desc}
         </p>
-        <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
-        </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

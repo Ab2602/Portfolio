@@ -1,7 +1,6 @@
 @import "../_globalColor";
 
+/* Legacy dark mode - now handled by daisyUI themes */
 .dark-mode {
-  background-color: $darkBackground;
-  color: white;
-  transition: "0.1s";
+  /* Styles handled by daisyUI data-theme attribute */
 }
