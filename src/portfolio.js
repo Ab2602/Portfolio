@@ -26,7 +26,7 @@ const greeting = {
     "DevOps Engineer with production experience on AWS and GCP 🚀 Specialized in container orchestration (K8s, EKS, GKE), infrastructure as code (Terraform), and CI/CD (Jenkins, GitLab). Delivered 60–70% faster deployment and monitoring setup."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
+    "https://drive.google.com/file/d/1d7CTQdD5quimaCnS1eN8xt9_f1wU5UdN/view?usp=sharing", // Set to empty to hide the button
   displayGreeting: true, // Set false to hide this section, defaults to true
   showTerminal: true // Show terminal intro
 };
